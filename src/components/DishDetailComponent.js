@@ -33,7 +33,6 @@ class DishDetail extends Component {
                             return (
                                 <li key={comment.id}>
                                     <p>{comment.comment}</p>
-                                    <p>{comment.rating} stars</p>
                                     <p>
                                         -- {comment.author},{" "}
                                         {new Intl.DateTimeFormat("en-US", {
