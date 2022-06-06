@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./HomeComponent";
 import Menu from "./MenuComponent";
 import Contact from "./ContactComponent";
+import About from "./AboutComponent";
 import DishDetail from "./DishDetailComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
@@ -29,11 +30,7 @@ class Main extends Component {
         const HomePage = () => {
             return (
                 <Home
-                    dish={
-                        this.state.dishes.filter(
-                            (dish) => dish.featured === true
-                        )[0]
-                    }
+                    dish={this.state.dishes.filter((dish) => dish.featured)[0]}
                     promotion={
                         this.state.promotions.filter(
                             (promo) => promo.featured
@@ -75,6 +72,11 @@ class Main extends Component {
                     />
                     <Route path="/menu/:dishId" component={DishWithId} />
                     <Route exact path="/contactus" component={Contact} />
+                    <Route
+                        exact
+                        path="/aboutus"
+                        component={() => <About leaders={this.state.leaders} />}
+                    />
                     <Redirect to="/home" />
                 </Switch>
                 <Footer />
